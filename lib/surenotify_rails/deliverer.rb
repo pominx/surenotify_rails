@@ -49,11 +49,11 @@ module SurenotifyRails
 
     def build_basic_surenotify_message_for(rails_message)
       surenotify_message = {
-       from: rails_message[:from].formatted,
-       to: rails_message[:to].formatted,
+       fromName: rails_message[:from].addrs.first.name,
+       fromAddress: rails_message[:from].addrs.first.address,
+       recipients: formatted_receivers(rails_message[:to]),
        subject: rails_message.subject,
-       html: extract_html(rails_message),
-       text: extract_text(rails_message)
+       content: extract_html(rails_message)
       }
 
       [:cc, :bcc].each do |key|
@@ -127,6 +127,10 @@ module SurenotifyRails
 
     def surenotify_client
       @surenotify_client ||= Client.new(api_key, domain, verify_ssl)
+    end
+
+    def formatted_receivers(receivers)
+      receivers.addrs.map { |r| { address: r.address } }
     end
   end
 end

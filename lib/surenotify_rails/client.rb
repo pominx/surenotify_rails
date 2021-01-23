@@ -13,15 +13,15 @@ module SurenotifyRails
 
     def send_message(options)
       RestClient::Request.execute(
-        headers: {
-          x_api_key: @api_key,
-          content_type: 'application/json',
-          accept: 'application/json',
-        }
         method: :post,
         url: surenotify_url,
-        payload: options,
-        verify_ssl: verify_ssl
+        payload: JSON::dump(options),
+        verify_ssl: verify_ssl,
+        headers: {
+          :content_type => 'application/json',
+          :accept => 'application/json',
+          'x-api-key' => @api_key
+        }
       )
     end
 
