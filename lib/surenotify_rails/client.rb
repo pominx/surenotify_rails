@@ -18,9 +18,9 @@ module SurenotifyRails
         payload: JSON::dump(options),
         verify_ssl: verify_ssl,
         headers: {
-          :content_type => 'application/json',
-          :accept => 'application/json',
-          'x-api-key' => @api_key
+          content_type: 'application/json',
+                accept: 'application/json',
+             x_api_key: @api_key
         }
       )
     end
