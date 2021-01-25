@@ -9,8 +9,8 @@ Gem::Specification.new do |s|
   s.version     = SurenotifyRails::VERSION
   s.authors     = ["Leo Chen"]
   s.email       = ["pominx@gmail.com"]
-  s.homepage    = "https://github.com/pominx/surenotify_rails/"
-  s.summary     = "Rails Action Mailer adapter for Surenotify"
+  s.homepage    = "https://github.com/pominx/surenotify_rails"
+  s.summary     = "Rails Action Mailer adapter for Surenotify (NewsLeopard)"
   s.description = "An adapter for using Surenotify with Rails and Action Mailer"
   s.license = 'MIT'
 

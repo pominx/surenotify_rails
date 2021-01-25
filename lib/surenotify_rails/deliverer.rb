@@ -7,10 +7,6 @@ module SurenotifyRails
       self.settings = settings
     end
 
-    def domain
-      self.settings[:domain]
-    end
-
     def api_key
       self.settings[:api_key]
     end
@@ -33,7 +29,7 @@ module SurenotifyRails
 
     def build_surenotify_message_for(rails_message)
       surenotify_message = build_basic_surenotify_message_for rails_message
-      transform_surenotify_attributes_from_rails rails_message, surenotify_message
+      # transform_surenotify_attributes_from_rails rails_message, surenotify_message
       remove_empty_values surenotify_message
 
       surenotify_message
@@ -126,7 +122,7 @@ module SurenotifyRails
     end
 
     def surenotify_client
-      @surenotify_client ||= Client.new(api_key, domain, verify_ssl)
+      @surenotify_client ||= Client.new(api_key, verify_ssl)
     end
 
     def formatted_receivers(receivers)

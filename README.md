@@ -16,10 +16,7 @@ To configure your Surenotify credentials place the following code in the corresp
 
 ```ruby
 config.action_mailer.delivery_method = :surenotify
-config.action_mailer.surenotify_settings = {
-		api_key: '<surenotify api key>',
-		domain: '<surenotify domain>'
-}
+config.action_mailer.surenotify_settings = { api_key: '<surenotify api key>' }
 ```
 
 Now you can send emails using plain Action Mailer:

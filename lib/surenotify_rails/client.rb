@@ -3,11 +3,10 @@ require 'rest_client'
 
 module SurenotifyRails
   class Client
-    attr_reader :api_key, :domain, :verify_ssl
+    attr_reader :api_key, :verify_ssl
 
-    def initialize(api_key, domain, verify_ssl = true)
+    def initialize(api_key, verify_ssl = true)
       @api_key = api_key
-      @domain = domain
       @verify_ssl = verify_ssl
     end
 
